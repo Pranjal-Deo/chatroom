@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time Chat App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login">
+    <input type="text" id="username" placeholder="Enter your username" />
+    <button id="loginBtn">Login</button>
+  </div>
+
+  <div id="chat" style="display: none;">
+    <div id="sidebar">
+      <h3>Chat App</h3>
+      <ul id="chatOptions">
+        <li id="publicChatOption">Public Chat</li>
+        <li id="privateChatOption" style="display: none;">Private Chat</li>
+        <li id="userListTitle">Users</li>
+        <ul id="userList"></ul>
+      </ul>
+      <div id="instructions">
+        <h4>How to use:</h4>
+        <p>1. Enter a username to log in.</p>
+        <p>2. Select "Public Chat" to chat with everyone.</p>
+        <p>3. Click on a user's name in the "Users" list to start a private conversation.</p>
+      </div>
+    </div>
+
+    <div id="chatArea">
+      <div id="publicChat" class="chat-box">
+        <h3>Public Chat</h3>
+        <div id="publicMessages"></div>
+        <input type="text" id="messageInput" placeholder="Type a message" />
+        <button id="sendPublicBtn">Send</button>
+      </div>
+      
+      <div id="privateChat" class="chat-box" style="display: none;">
+        <h3>Private Chat with <span id="privateUser"></span></h3>
+        <div id="privateMessages"></div>
+        <input type="text" id="privateMessageInput" placeholder="Type a private message" />
+        <button id="sendPrivateBtn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
